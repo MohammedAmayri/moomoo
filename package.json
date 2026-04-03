@@ -1,0 +1,20 @@
+{
+  "name": "retelltjafs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "agent:create": "node src/create-swedish-agent.mjs",
+    "agent:voice": "node src/get-agent-voice-config.mjs",
+    "agent:find": "node src/find-agent-by-name.mjs",
+    "grok:start": "node src/grok-server.mjs",
+    "agent:switch-grok": "node src/switch-agent-to-grok.mjs"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "express": "latest",
+    "express-ws": "latest",
+    "openai": "latest",
+    "retell-sdk": "latest"
+  }
+}

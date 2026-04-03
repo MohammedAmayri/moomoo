@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: retell-grok-bridge
+    runtime: node
+    region: frankfurt
+    plan: starter
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: npm run grok:start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.1
+      - key: HOST
+        value: 0.0.0.0
+      - key: XAI_API_KEY
+        sync: false
+      - key: RETELL_API_KEY
+        sync: false
+      - key: RETELL_AGENT_ID
+        sync: false
+      - key: XAI_BASE_URL
+        value: https://api.x.ai/v1
+      - key: GROK_MODEL
+        value: grok-4.20
+      - key: GROK_TEMPERATURE
+        value: 0.2
+      - key: GROK_BEGIN_MESSAGE
+        value: Jaha. Vad gäller det, mer exakt?
+      - key: GROK_REMINDER_MESSAGE
+        value: Jaha. Fortsätt då, men gärna mer konkret den här gången.
